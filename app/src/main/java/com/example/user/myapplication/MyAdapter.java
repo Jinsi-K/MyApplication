@@ -22,9 +22,9 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.ViewHolder> {
     private ArrayList<ItemData> itemDataArrayList;
     private Context context;
     private int selectedPos = 0;
-    private LinearLayoutManager  layoutManager;
+    private LinearLayoutManager layoutManager;
 
-    public MyAdapter(Context context, ArrayList<ItemData> itemDataArrayList,  LinearLayoutManager  layoutManager) {
+    public MyAdapter(Context context, ArrayList<ItemData> itemDataArrayList, LinearLayoutManager layoutManager) {
         this.context = context;
         this.itemDataArrayList = itemDataArrayList;
         this.layoutManager = layoutManager;
@@ -39,14 +39,14 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.ViewHolder> {
 
     @Override
     public void onBindViewHolder(ViewHolder viewHolder, int i) {
-        Log.i("","position=="+i);
+        // to set the values from list to display UI
         viewHolder.imgPic.setImageResource(itemDataArrayList.get(i).getImage());
         viewHolder.tvImageTitle.setText(itemDataArrayList.get(i).getTitle());
         viewHolder.tvImageSubTitle.setText(itemDataArrayList.get(i).getSubTitle());
         viewHolder.tvHoursCount.setText(itemDataArrayList.get(i).getTime());
         viewHolder.itemView.setSelected(selectedPos == i);
         int firstVisiblePosition = layoutManager.findFirstVisibleItemPosition();
-        Log.i("","firstVisiblePosition=="+firstVisiblePosition);
+        Log.i("", "firstVisiblePosition==" + firstVisiblePosition);
         /*if(firstVisiblePosition == i){
             viewHolder.rlImage.setVisibility(View.VISIBLE);
             viewHolder.flFav.setVisibility(View.VISIBLE);
